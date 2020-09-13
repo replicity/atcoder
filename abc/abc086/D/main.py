@@ -1,15 +1,8 @@
 #!/usr/bin/env python3
 import sys
-import math
 
-np = ":("
 
-def solve(N: int):
-    ans = math.ceil(N/ 108 * 100)
-    if math.floor(ans * 1.08) != N:
-        print(np)
-    else:
-        print(ans)
+def solve(N: int, K: int, x: "List[int]", y: "List[int]", c: "List[str]"):
     return
 
 
@@ -21,7 +14,15 @@ def main():
                 yield word
     tokens = iterate_tokens()
     N = int(next(tokens))  # type: int
-    solve(N)
+    K = int(next(tokens))  # type: int
+    x = [int()] * (N)  # type: "List[int]"
+    y = [int()] * (N)  # type: "List[int]"
+    c = [str()] * (N)  # type: "List[str]"
+    for i in range(N):
+        x[i] = int(next(tokens))
+        y[i] = int(next(tokens))
+        c[i] = next(tokens)
+    solve(N, K, x, y, c)
 
 if __name__ == '__main__':
     main()

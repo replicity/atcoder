@@ -5,11 +5,11 @@
  },
  "lang": "python",
  "problem": {
-  "alphabet": "B",
+  "alphabet": "A",
   "contest": {
-   "contest_id": "sumitrust2019"
+   "contest_id": "abc086"
   },
-  "problem_id": "sumitb2019_b"
+  "problem_id": "abc086_a"
  },
  "sample_in_pattern": "in_*.txt",
  "sample_out_pattern": "out_*.txt"
