@@ -3,6 +3,12 @@ import sys
 
 
 def solve(K: int, N: int, A: "List[int]"):
+    ans = A[N-1] - A[0]
+    for i in range(1, N):
+        if ans > (A[i-1] + K- A[i]):
+            ans = A[i-1] + K - A[i]
+    print(ans)
+
     return
 
 
