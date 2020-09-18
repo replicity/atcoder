@@ -3,6 +3,11 @@ import sys
 
 
 def solve(N: int, d: "List[int]"):
+    d.sort()
+    abc = d[int(N/2)-1]
+    arc = d[int(N/2)]
+    print(arc-abc)
+
     return
 
 
