@@ -3,6 +3,25 @@ import sys
 
 
 def solve(A: int, B: int, C: int):
+    ans = 0
+    s = set()
+    while True:
+        if A % 2 == 1 or B % 2 == 1 or C % 2 == 1:
+            print(ans)
+            break
+        newA =  B / 2 + C / 2
+        newB =  A / 2 + C / 2
+        newC =  A / 2 + B / 2
+        A = newA
+        B = newB
+        C = newC
+        ans += 1
+        n = ','.join(map(str, [A, B, C]))
+        if n in s:
+            print("-1")
+            break
+        s.add(n)
+
     return
 
 
