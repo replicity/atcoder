@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, K: int):
+    ans = N
+    N = abs(N - K * (N // K))
+    if ans > N:
+        ans = N
+    N = abs(N -K)
+    if ans > N:
+        ans = N
+
+
+    print(ans)
     return
 
 
