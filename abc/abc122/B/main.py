@@ -2,11 +2,16 @@
 import sys
 
 
-def solve(N: int, v: "List[int]"):
-    v.sort()
-    ans = (v[0] + v[1]) / 2
-    for i in range(2, N):
-        ans = (ans + v[i]) / 2
+def solve(S: str):
+    ans = 0
+    c = 0
+    for i in S:
+        if i in ["A", "C", "G", "T"]:
+            c += 1
+        else:
+            c = 0
+        if c > ans:
+            ans = c
     print(ans)
 
     return
@@ -19,9 +24,8 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    N = int(next(tokens))  # type: int
-    v = [int(next(tokens)) for _ in range(N)]  # type: "List[int]"
-    solve(N, v)
+    S = next(tokens)  # type: str
+    solve(S)
 
 if __name__ == '__main__':
     main()

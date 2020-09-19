@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, A: "List[int]"):
+    m = {}
+    for i in range(N):
+        m[A[i]] = i + 1
+
+    ans = []
+    ms = sorted(m.items(), key=lambda x :x[0])
+    for i in range(N):
+        ans.append(ms[i][1])
+
+    print(' '.join(map(str,ans)))
     return
 
 
