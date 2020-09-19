@@ -2,7 +2,21 @@
 import sys
 
 
-def solve(s: int):
+def solve(S: int):
+    s = set()
+    s.add(S)
+    c = 2
+    while True:
+        if S % 2 == 1:
+            S = 3 * S + 1
+        else:
+            S /=  2
+        if S in s:
+            print(c)
+            break
+        s.add(S)
+        c += 1
+
     return
 
 

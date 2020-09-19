@@ -3,6 +3,19 @@ import sys
 
 
 def solve(N: int, M: int, X: int, A: "List[int]"):
+    ans = 0
+    for i in range(X-1, 0, -1):
+        if i in A:
+            ans += 1
+    c = 0
+    for i in range(X+1, N):
+        if i in A:
+            c += 1
+    if ans > c:
+        ans = c
+    print(ans)
+
+
     return
 
 
