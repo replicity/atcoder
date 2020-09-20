@@ -3,6 +3,12 @@ import sys
 
 
 def solve(N: int, D: int, X: int, A: "List[int]"):
+    ans = X + N
+    for i in A:
+        ans += ((D-1) // i)
+    print(ans)
+
+
     return
 
 

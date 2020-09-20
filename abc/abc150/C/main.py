@@ -1,8 +1,27 @@
 #!/usr/bin/env python3
 import sys
+import itertools
 
 
 def solve(N: int, P: "List[int]", Q: "List[int]"):
+    l = []
+    for i in range(N):
+        l.append(i+1)
+
+    p = 0
+    q = 0
+    c = 0
+    for i in itertools.permutations(l, N):
+        c += 1
+        t = list(i)
+        if t == P:
+            p = c
+        if t == Q:
+            q = c
+        if p != 0 and q != 0:
+            print(abs(q - p))
+            break
+
     return
 
 

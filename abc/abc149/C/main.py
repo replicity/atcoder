@@ -3,6 +3,23 @@ import sys
 
 
 def solve(X: int):
+    if X == 2:
+        print(X)
+        return
+    n = X -1
+    while True:
+        n += 1
+        if n % 2 == 0:
+            continue
+        f = True
+        for i in range(3, (n//2)+1, 2):
+            if n % i == 0:
+                f = False
+                break
+        if f:
+            print(n)
+            break
+
     return
 
 

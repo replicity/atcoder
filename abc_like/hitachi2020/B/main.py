@@ -3,6 +3,15 @@ import sys
 
 
 def solve(A: int, B: int, M: int, a: "List[int]", b: "List[int]", x: "List[int]", y: "List[int]", c: "List[int]"):
+    ans = min(a) + min(b)
+    for i in range(M):
+        xi = x[i]
+        yi = y[i]
+        ci = c[i]
+        t = a[xi-1] + b[yi-1] - ci
+        if ans >= t:
+            ans = t
+    print(ans)
     return
 
 

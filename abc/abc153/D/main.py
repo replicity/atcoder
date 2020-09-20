@@ -3,6 +3,19 @@ import sys
 
 
 def solve(H: int):
+    if H == 1:
+        print(1)
+        return
+    i = 2
+    c = 3
+    while True:
+        i *= 2
+        if i > H:
+            print(c)
+            break
+        c = c * 2 + 1
+
+
     return
 
 

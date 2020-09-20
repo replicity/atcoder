@@ -3,6 +3,15 @@ import sys
 
 
 def solve(N: int, A: int, B: int):
+    c = A + B
+    d = N // c
+    ans = d * A
+    e = N % c
+    if e >= A:
+        ans += A
+    else:
+        ans += e
+    print(ans)
     return
 
 

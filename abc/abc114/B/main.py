@@ -2,7 +2,14 @@
 import sys
 
 
-def solve(S: int):
+def solve(S):
+    ans = float('inf')
+    for i in range(len(S)-2):
+        x = abs(753 - int(S[i:i+3]))
+        if ans > x:
+            ans = x
+    print(ans)
+
     return
 
 
@@ -13,7 +20,7 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    S = int(next(tokens))  # type: int
+    S = next(tokens)  # type: string
     solve(S)
 
 if __name__ == '__main__':
