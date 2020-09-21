@@ -6,6 +6,23 @@ NO = "No"  # type: str
 
 
 def solve(A: int, B: int, S: str):
+    if len(S) != A + B + 1:
+        print(NO)
+        return
+    an = S[0:A]
+    h = S[A]
+    bn = S[A+1:]
+    if not an.isdecimal():
+        print(NO)
+        return
+    if h != "-":
+        print(NO)
+        return
+    if not bn.isdecimal():
+        print(NO)
+        return
+    print(YES)
+
     return
 
 

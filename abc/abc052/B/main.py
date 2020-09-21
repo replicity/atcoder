@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, S: str):
+    ans = 0
+    t  = 0
+    for i in S:
+        if i == "I":
+            t += 1
+        if i == "D":
+            t -= 1
+        if t > ans:
+            ans = t
+    print(ans)
     return
 
 
