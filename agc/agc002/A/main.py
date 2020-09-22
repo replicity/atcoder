@@ -3,6 +3,17 @@ import sys
 
 
 def solve(a: int, b: int):
+    if a <= 0 <= b:
+        print("Zero")
+        return
+    if 0 < a:
+        print("Positive")
+        return
+    if (abs(a-b)+1) % 2 == 1:
+        print("Negative")
+        return
+    print("Positive")
+
     return
 
 

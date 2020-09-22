@@ -3,6 +3,20 @@ import sys
 
 
 def solve(N: int, A: "List[int]"):
+    max = 0
+    next = 0
+    for i in A:
+        if i >= max:
+            next = max
+            max = i
+        elif i >= next:
+            next = i
+
+    for i in A:
+        if i == max:
+            print(next)
+        else:
+            print(max)
     return
 
 

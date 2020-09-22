@@ -6,6 +6,16 @@ NO = "No"  # type: str
 
 
 def solve(N: int, K: int, Q: int, A: "List[int]"):
+    p = [Q] * N
+    for i in range(Q):
+        p[A[i]-1] -= 1
+
+    for i in range(N):
+        if K - p[i]  > 0:
+            print(YES)
+        else:
+            print(NO)
+
     return
 
 

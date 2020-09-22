@@ -3,6 +3,19 @@ import sys
 
 
 def solve(N: int, M: int, L: "List[int]", R: "List[int]"):
+    min = L[0]
+    max = R[0]
+    for i in range(M):
+        if L[i] > min:
+            min = L[i]
+        if R[i] < max:
+            max = R[i]
+    ans = 0
+    for i in range(1, N+1):
+        if min <= i <= max:
+            ans += 1
+    print(ans)
+
     return
 
 

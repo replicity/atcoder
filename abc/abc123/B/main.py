@@ -1,8 +1,26 @@
 #!/usr/bin/env python3
 import sys
+import math
 
 
 def solve(A: int, B: int, C: int, D: int, E: int):
+    li = [A, B, C, D, E]
+    lastIndex = 0
+    t = A % 10
+    for i in range(1, 5):
+        if li[i] % 10 < t and li[i] % 10 != 0:
+            lastIndex = i
+
+    ans = 0
+    for i in range(5):
+        if i != lastIndex:
+            ans += math.ceil(li[i] / 10) * 10
+        else:
+            ans += li[i]
+    print(ans)
+
+
+
     return
 
 
