@@ -3,6 +3,23 @@ import sys
 
 
 def solve(S: str):
+    oddWhite = 0
+    oddBlack = 0
+    evenWhite = 0
+    evenBlack = 0
+    for i in range(0, len(S)):
+        if i % 2 == 0:
+            if S[i] == '1':
+                oddWhite += 1
+            else:
+                oddBlack += 1
+        elif S[i] == '1':
+            evenWhite += 1
+        else:
+            evenBlack += 1
+    ans = min(oddBlack + evenWhite, evenBlack+ oddWhite)
+    print(ans)
+
     return
 
 

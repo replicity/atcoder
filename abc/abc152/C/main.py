@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, P: "List[int]"):
+    ans = 1
+    min = P[0]
+    for i in range(1, N):
+        if min > P[i]:
+            ans += 1
+            min = P[i]
+
+    print(ans)
     return
 
 

@@ -6,6 +6,16 @@ NO = "No"  # type: str
 
 
 def solve(w: str):
+    base = ord('a')
+    b = [0] * 26
+    for s in w:
+        b[ord(s)- base] += 1
+    for i in b:
+        if i % 2 != 0:
+            print(NO)
+            return
+
+    print(YES)
     return
 
 
