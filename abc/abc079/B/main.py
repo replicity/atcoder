@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
 
+L = [0] * 87
+L[0] = 2
+L[1] = 1
+
+def cal(N: int):
+    n = L[N]
+    if n != 0:
+        return n
+    L[N] = cal(N-1)+ cal(N-2)
+    return L[N]
 
 def solve(N: int):
+    print(cal(N))
+
     return
 
 

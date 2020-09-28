@@ -3,6 +3,20 @@ import sys
 
 
 def solve(N: int, H: "List[int]"):
+    ans = 0
+    h = H[0]
+    m = 0
+    for i in range(1, N):
+        if h >= H[i]:
+            m += 1
+        else:
+            m = 0
+        h = H[i]
+        if m >= ans:
+            ans = m
+    print(ans)
+
+
     return
 
 

@@ -2,7 +2,13 @@
 import sys
 
 
-def solve(A: str, B: str):
+def solve(A: int, B: int):
+    if A == B:
+        print("EQUAL")
+    elif A > B:
+        print("GREATER")
+    else:
+        print("LESS")
     return
 
 
@@ -13,8 +19,8 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    A = next(tokens)  # type: str
-    B = next(tokens)  # type: str
+    A = int(next(tokens))  # type: int
+    B = int(next(tokens))  # type: int
     solve(A, B)
 
 if __name__ == '__main__':

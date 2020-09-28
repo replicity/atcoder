@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 import sys
 
+MAX = 10 * 18
+
 
 def solve(A: int, B: int, C: int, K: int):
+    ans = A - B
+    if K % 2 != 0:
+        ans *= -1
+    print(ans)
+
     return
 
 
