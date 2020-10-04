@@ -6,6 +6,13 @@ NO = "No"  # type: str
 
 
 def solve(S: str, T: str):
+    for i in range(len(S)):
+        if S == T:
+            print(YES)
+            return
+        S = S[-1] + S[:-1]
+
+    print(NO)
     return
 
 

@@ -3,6 +3,18 @@ import sys
 
 
 def solve(S: str):
+    b = S[0]
+    ans = 1
+    t = ""
+    for c in S[1:]:
+        t += c
+        if t != b:
+            ans += 1
+            b = t
+            t = ""
+        else:
+            t = c
+    print(ans)
     return
 
 

@@ -3,6 +3,18 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    if a.count(1) == 0:
+        print(-1)
+        return
+    ans = 0
+    i = 1
+    for j in range(N):
+        if a[j] == i:
+            i += 1
+        else:
+            ans += 1
+    print(ans)
+
     return
 
 

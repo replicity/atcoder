@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, T: "List[int]", M: int, P: "List[int]", X: "List[int]"):
+    for i in range(M):
+        ans = 0
+        for j in range(N):
+            if j == (P[i] -1):
+                ans += X[i]
+            else:
+                ans += T[j]
+        print(ans)
     return
 
 

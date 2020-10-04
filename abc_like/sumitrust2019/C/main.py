@@ -3,6 +3,15 @@ import sys
 
 
 def solve(X: int):
+    n = X % 100
+    c = X // 100
+    t = n // 5
+    if n % 5 != 0:
+        t += 1
+    if c < t:
+        print(0)
+        return
+    print(1)
     return
 
 

@@ -3,6 +3,15 @@ import sys
 
 
 def solve(A: int, B: int, K: int):
+    t = 0
+    for i in range(A, (min(B, A+K))):
+        print(i)
+        t = i
+
+    for i in range(max(t, B-K)+1, B+1):
+        print(i)
+
+
     return
 
 

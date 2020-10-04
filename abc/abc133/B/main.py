@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
+import math
 
 
 def solve(N: int, D: int, X: "List[List[int]]"):
+    ans = 0
+    for i in range(N):
+        for j in range(i+1, N):
+            d = 0
+            for k in range(D):
+                d += (X[i][k] - X[j][k]) ** 2
+            d = math.sqrt(d)
+            if d.is_integer():
+                ans += 1
+
+    print(ans)
     return
 
 

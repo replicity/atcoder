@@ -3,6 +3,12 @@ import sys
 
 
 def solve(N: int, M: int, a: "List[int]", b: "List[int]"):
+    ans = [0] * N
+    for i in range(M):
+        ans[a[i]-1] += 1
+        ans[b[i]-1] += 1
+    for n in ans:
+        print(n)
     return
 
 

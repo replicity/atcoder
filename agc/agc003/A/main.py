@@ -6,6 +6,24 @@ NO = "No"  # type: str
 
 
 def solve(S: str):
+    n = S.count("N")
+    s = S.count("S")
+    w = S.count("W")
+    e = S.count("E")
+
+    if n == 0 and s != 0:
+        print(NO)
+        return
+    if s == 0 and n != 0:
+        print(NO)
+        return
+    if w == 0 and e != 0:
+        print(NO)
+        return
+    if e == 0 and w != 0:
+        print(NO)
+        return
+    print(YES)
     return
 
 

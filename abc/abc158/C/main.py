@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 import sys
+import math
 
 
 def solve(A: int, B: int):
+    s = math.ceil(max(A, B) * 12.5)
+
+    ans = -1
+    for i in range(s, 0, -1):
+        if math.floor(i * 0.08) == A and math.floor(i * 0.1) == B:
+            ans = i
+    print(ans)
+
     return
 
 

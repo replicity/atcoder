@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
+import collections
 
 
 def solve(N: int, S: "List[str]"):
+    c = collections.Counter(S).most_common()
+    max = c[0][1]
+    ans = []
+    for key, num in c:
+        if max > num:
+            break
+        ans.append(key)
+    ans.sort()
+    for s in ans:
+        print(s)
+
     return
 
 

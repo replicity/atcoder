@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, S: "List[str]", P: "List[int]"):
+    m = {}
+    for i in range(N):
+        m[f"{S[i]}-{100-P[i]:03}"] = i+1
+
+    ans = sorted(m.items(), key=lambda x:x[0])
+
+    for v in ans:
+        print(v[1])
+
+
     return
 
 

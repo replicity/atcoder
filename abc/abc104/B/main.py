@@ -3,6 +3,22 @@ import sys
 
 
 def solve(S: str):
+    if S[0] != "A":
+        print("WA")
+        return
+    i = -1
+    if S[2:-1].count("C") != 1:
+        print("WA")
+        return
+    else:
+        i = S.index("C")
+    S = S[:i]  + S[i+1:]
+    S = S[1:]
+    if S.islower():
+        print("AC")
+        return
+    print("WA")
+
     return
 
 

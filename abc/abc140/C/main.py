@@ -3,6 +3,10 @@ import sys
 
 
 def solve(N: int, B: "List[int]"):
+    ans = B[0] + B[N-2]
+    for i in range(1, N-1):
+        ans += min(B[i-1], B[i])
+    print(ans)
     return
 
 

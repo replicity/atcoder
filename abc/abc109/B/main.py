@@ -6,6 +6,20 @@ NO = "No"  # type: str
 
 
 def solve(N: int, W: "List[str]"):
+    s = set()
+    s.add(W[0])
+    l = W[0][-1]
+    for i in range(1, N):
+        if l != W[i][0]:
+            print(NO)
+            return
+        if W[i] in s:
+            print(NO)
+            return
+        s.add(W[i])
+        l = W[i][-1]
+    print(YES)
+
     return
 
 
