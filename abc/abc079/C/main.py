@@ -1,8 +1,41 @@
 #!/usr/bin/env python3
 import sys
 
+ops = [
+        ['+', '+', '+'],
+        ['+', '+', '-'],
+        ['+', '-', '+'],
+        ['+', '-', '-'],
+        ['-', '+', '+'],
+        ['-', '+', '-'],
+        ['-', '-', '+'],
+        ['-', '-', '-'],
+        ]
+
 
 def solve(ABCD: str):
+    a = int(ABCD[0])
+    b = int(ABCD[1])
+    c = int(ABCD[2])
+    d = int(ABCD[3])
+    for i in range(8):
+        t = a
+        if ops[i][0] == "+":
+            t += b
+        else:
+            t -=b
+        if ops[i][1] == "+":
+            t += c
+        else:
+            t -=c
+        if ops[i][2] == "+":
+            t += d
+        else:
+            t -=d
+        if t == 7:
+            print(f"{a}{ops[i][0]}{b}{ops[i][1]}{c}{ops[i][2]}{d}=7")
+            break
+
     return
 
 
