@@ -1,25 +1,26 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys
 
 MOD = 998244353  # type: int
 
 
+# すべてのマスに対してK個の区間の値を使ってdpを求めていく
+# 区間は重複しないことを使って、区間ごとの値は累積和を使って求めることで高速化できる
 def solve(N: int, K: int, L: "List[int]", R: "List[int]"):
-    dp = [0] * (N + 1)
-    dp[1] = 1
-    s = []
-    for i in range(K):
-        for j in range(L[i], R[i]+1):
-            s.append(j)
-    s.sort()
-    for i in range(1, N+1):
-        for j in s:
-            if i - j >= 1:
-                dp[i] += dp[i-j]
-                dp[i] %= MOD
-            else:
-                break
-    print(dp[N]%MOD)
+    dp = [0] * N
+    sdp = [0] * (N + 1)
+    dp[0] = 1
+    sdp[1] = 1
+
+    for i in range(1, N):
+        for j in range(K):
+            l = max(0, i - R[j])
+            r = max(0, i - L[j]+1)
+            dp[i] += sdp[r] - sdp[l]
+            dp[i] %= MOD
+        sdp[i+1] = sdp[i] + dp[i]
+        sdp[i+1] %= MOD
+    print(dp[N-1]%MOD)
 
     return
 
