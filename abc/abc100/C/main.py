@@ -3,6 +3,15 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    ans = 0
+    for i in range(N):
+        n = a[i]
+        while n % 2 == 0:
+            n /= 2
+            ans += 1
+    print(ans)
+
+
     return
 
 

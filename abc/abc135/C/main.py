@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, A: "List[int]", B: "List[int]"):
+    ans = 0
+    for i in range(N):
+        ans += min(A[i], B[i])
+        B[i] = max(0, B[i]-A[i])
+        ans += min(A[i+1], B[i])
+        A[i+1] = max(0, A[i+1]- B[i])
+    print(ans)
+
     return
 
 
