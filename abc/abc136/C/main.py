@@ -6,6 +6,17 @@ NO = "No"  # type: str
 
 
 def solve(N: int, H: "List[int]"):
+    index = H[0]
+    for i in range(1, N):
+        if index == H[i] -1 or index == H[i]:
+            continue
+        if index > H[i]-1:
+            print(NO)
+            return
+        index = H[i] -1
+
+    print(YES)
+
     return
 
 

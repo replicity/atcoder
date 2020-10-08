@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
+import math
 
 
 def solve(N: int):
+    ans = float('inf')
+
+    for i in range(2, int(math.sqrt(N)+1)):
+        s = N / i
+        if s.is_integer():
+            t = i + s -2
+            ans = min(ans, t)
+    if ans == float('inf'):
+        ans = N -1
+    print(int(ans))
+
     return
 
 
