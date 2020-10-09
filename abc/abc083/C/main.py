@@ -3,6 +3,15 @@ import sys
 
 
 def solve(X: int, Y: int):
+    ans = 1
+    a = X
+    while True:
+        a = a * 2
+        if a > Y:
+            print(ans)
+            return
+        ans += 1
+
     return
 
 

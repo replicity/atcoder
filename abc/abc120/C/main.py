@@ -3,6 +3,27 @@ import sys
 
 
 def solve(S: str):
+    stack = []
+    index = 0
+    empty = True
+    ans = 0
+    for i in range(len(S)):
+        if empty:
+            index = S[i]
+            empty = False
+        else:
+            if index != S[i]:
+                ans += 2
+                if len(stack) == 0:
+                    empty = True
+                    continue
+                else:
+                    index = stack.pop()
+            else:
+                stack.append(S[i])
+    print(ans)
+
+
     return
 
 

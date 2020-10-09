@@ -3,6 +3,16 @@ import sys
 
 
 def solve(S: int, K: int):
+    s = str(S)
+    for i in range(len(s)):
+        if s[i] != '1':
+            print(s[i])
+            return
+        if i+1 == K:
+            print(1)
+            return
+
+
     return
 
 

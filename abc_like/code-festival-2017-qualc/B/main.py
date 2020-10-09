@@ -3,6 +3,15 @@ import sys
 
 
 def solve(N: int, A: "List[int]"):
+    ans = 3 ** N
+    c = 0
+    for i in A:
+        if i % 2 == 0:
+            c += 1
+    ans -= (2 ** c) * 1
+    print(ans)
+
+
     return
 
 

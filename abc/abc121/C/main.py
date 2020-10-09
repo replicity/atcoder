@@ -3,6 +3,20 @@ import sys
 
 
 def solve(N: int, M: int, A: "List[int]", B: "List[int]"):
+    d = []
+    for i in range(N):
+        d.append([A[i], B[i]])
+    d.sort(key=lambda x: x[0])
+    ans = 0
+    for i in range(N):
+        if d[i][1] >= M:
+             ans += M * d[i][0]
+             print(ans)
+             return
+        ans += d[i][1] * d[i][0]
+        M -= d[i][1]
+
+
     return
 
 

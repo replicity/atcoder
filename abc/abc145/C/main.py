@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
+import itertools
+import math
 
 
 def solve(N: int, x: "List[int]", y: "List[int]"):
+    l = list(range(N))
+    d = 0
+
+    p_list = list(itertools.permutations(l, N))
+    for p in p_list:
+        t = 0
+        for i in range(N-1):
+            t += math.sqrt( (x[p[i]]-x[p[i+1]]) ** 2 + (y[p[i]]-y[p[i+1]]) ** 2)
+        d += t
+    print(d/len(p_list))
     return
 
 

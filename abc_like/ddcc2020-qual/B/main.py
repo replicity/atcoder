@@ -2,8 +2,20 @@
 import sys
 
 
-def solve(N: int, a: "List[int]"):
-    print(sum(a)-N)
+def solve(N: int, A: "List[int]"):
+    ans = 0
+    left = A[0]
+    right = A[-1]
+    li = 1
+    ri = -2
+    for i in range(N-2):
+        if left > right:
+            right += A[ri]
+            ri -= 1
+        else:
+            left += A[li]
+            li += 1
+    print(abs(left-right))
 
     return
 
@@ -16,8 +28,8 @@ def main():
                 yield word
     tokens = iterate_tokens()
     N = int(next(tokens))  # type: int
-    a = [int(next(tokens)) for _ in range(N)]  # type: "List[int]"
-    solve(N, a)
+    A = [int(next(tokens)) for _ in range(N)]  # type: "List[int]"
+    solve(N, A)
 
 if __name__ == '__main__':
     main()

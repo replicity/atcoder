@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    ans = 0
+    for i in range(N):
+        if i > a[i]-1:
+            continue
+        if a[a[i]-1]-1 == i:
+            ans += 1
+    print(ans)
+
     return
 
 

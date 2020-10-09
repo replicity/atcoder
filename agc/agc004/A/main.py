@@ -2,9 +2,14 @@
 import sys
 
 
-def solve(N: int, a: "List[int]"):
-    print(sum(a)-N)
+def solve(A: int, B: int, C: int):
+    if A % 2 != 0 and B %2 != 0 and C %2 != 0:
+        l = [A, B, C]
+        l.sort()
+        print(l[0] * l[1])
+        return
 
+    print(0)
     return
 
 
@@ -15,9 +20,10 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    N = int(next(tokens))  # type: int
-    a = [int(next(tokens)) for _ in range(N)]  # type: "List[int]"
-    solve(N, a)
+    A = int(next(tokens))  # type: int
+    B = int(next(tokens))  # type: int
+    C = int(next(tokens))  # type: int
+    solve(A, B, C)
 
 if __name__ == '__main__':
     main()
