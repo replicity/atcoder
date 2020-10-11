@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, K: int, h: "List[int]"):
+    dp = [float('inf')] * N
+    dp[0] = 0
+    for i in range(N-1):
+        for j in range(1, K+1):
+            if i + j < N:
+                cost = dp[i] + abs(h[i] -  h[i+j])
+                if dp[i+j] > cost:
+                    dp[i + j] = cost
+
+    print(dp[N-1])
     return
 
 

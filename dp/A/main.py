@@ -3,6 +3,20 @@ import sys
 
 
 def solve(N: int, h: "List[int]"):
+    dp = [float('inf')] * N
+    dp[0] = 0
+    for i in range(N-1):
+        if i + 1 < N:
+            cost = dp[i] + abs(h[i] -  h[i+1])
+            if dp[i+1] > cost:
+                dp[i + 1] = cost
+        if i + 2 < N:
+            cost = dp[i] + abs(h[i] -  h[i+2])
+            if dp[i+2] > cost:
+                dp[i + 2] = cost
+
+    print(dp[N-1])
+
     return
 
 

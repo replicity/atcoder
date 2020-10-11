@@ -1,8 +1,27 @@
 #!/usr/bin/env python3
 import sys
 
-
+# n番目の荷物までの状態で重さが1~Nの場合でそれぞれの最大の価値を計算する
 def solve(N: int, W: int, w: "List[int]", v: "List[int]"):
+    dp = [[0] * (W + 1) for i in range(N+1)]
+
+    # 何番目の荷物か
+    for i in range(1, N+1):
+        # 重さ
+        weight = w[i-1]
+        value = v[i-1]
+        for j in range(W+1):
+            if j < weight:
+                dp[i][j] = dp[i-1][j]
+            elif dp[i-1][j] <  dp[i-1][max(0, (j - weight))] + value:
+                dp[i][j] = dp[i-1][max(0, (j - weight))] + value
+            else:
+                dp[i][j] = dp[i-1][j]
+
+    # for idp in dp:
+    #     print(idp)
+
+    print(dp[N][W])
     return
 
 
