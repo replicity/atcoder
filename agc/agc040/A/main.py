@@ -3,6 +3,57 @@ import sys
 
 
 def solve(S: str):
+    ans = 0
+    left = 0
+    count = 0
+    before = -1
+    for i in range(len(S)):
+        if i != 0:
+            if S[i-1] == ">":
+                left = -1
+            else:
+                left = 1
+        right = S[i]
+
+        if right == ">" and count == 0:
+            count += 1
+            for j in range(i+1, len(S)):
+                if S[j] == ">":
+                    count += 1
+                else:
+                    break
+        # > x <
+        if (left == -1 or left == 0) and right == "<":
+            ans += 0
+            before = 0
+            count = 0
+
+        # < x >
+        if (left == 1 or left == 0) and right == ">":
+            n = max(before+1, count)
+            ans += n
+            before = n
+            count -= 1
+
+        # > x >
+        if left == -1 and right == ">":
+            ans += count
+            before = count
+            count -= 1
+
+        # < x <
+        if left == 1 and right == "<":
+            ans += before + 1
+            before += 1
+
+        if i == len(S) -1:
+            if right == ">":
+                ans += 0
+            else:
+                ans += before+1
+
+    print(ans)
+
     return
 
 
