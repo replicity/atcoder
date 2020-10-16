@@ -3,6 +3,7 @@ import sys
 
 
 def solve(N: int):
+    print(((N-1) * N) // 2)
     return
 
 
