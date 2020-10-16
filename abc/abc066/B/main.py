@@ -3,6 +3,13 @@ import sys
 
 
 def solve(S: str):
+    for i in range(len(S)-2, 0, -2):
+        h = i // 2
+        left = S[0:h]
+        right = S[h:i]
+        if left == right:
+            print(i)
+            break
     return
 
 
