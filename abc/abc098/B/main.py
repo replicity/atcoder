@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, S: str):
+    ans = 0
+    for i in range(1, N):
+        left = set(S[:i])
+        right = set(S[i:])
+        count = len(left & right)
+        ans = max(ans, count)
+    print(ans)
+
     return
 
 

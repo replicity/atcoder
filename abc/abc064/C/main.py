@@ -3,6 +3,30 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    ans = set()
+    f = 0
+    for i in a:
+        if i <= 399:
+            ans.add(0)
+        elif i <= 799:
+            ans.add(1)
+        elif i <= 1199:
+            ans.add(2)
+        elif i <= 1599:
+            ans.add(3)
+        elif i <= 1999:
+            ans.add(4)
+        elif i <= 2399:
+            ans.add(5)
+        elif i <= 2799:
+            ans.add(6)
+        elif i <= 3199:
+            ans.add(7)
+        else:
+            f += 1
+    print(f"{max(len(ans),1)} {len(ans)+f}")
+
+
     return
 
 
