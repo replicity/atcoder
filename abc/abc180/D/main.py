@@ -3,6 +3,14 @@ import sys
 
 
 def solve(X: int, Y: int, A: int, B: int):
+    ans = 0
+    while ((X * A )- X) < B and X * A <= Y:
+        X *= A
+        ans += 1
+    D = Y - X -1
+    ans += D // B
+    print(ans)
+
     return
 
 

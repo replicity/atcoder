@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
 import sys
+import math
 
 
 def solve(N: int, x: "List[int]"):
+    manhattan= 0
+    euclidian = 0
+    chebyshev = []
+    for i in range(N):
+        manhattan += abs(x[i])
+        euclidian += abs(x[i] ** 2)
+        chebyshev.append(abs(x[i]))
+    print(manhattan)
+    print(math.sqrt(euclidian))
+    print(max(chebyshev))
     return
 
 

@@ -3,6 +3,7 @@ import sys
 
 
 def solve(N: int, A: int, B: int):
+    print(N-A+B)
     return
 
 

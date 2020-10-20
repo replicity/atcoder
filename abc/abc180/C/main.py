@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 import sys
+import math
 
 
 def solve(N: int):
+    s = set()
+    for i in range(1, int(math.sqrt(N) + 2)):
+        if N % i == 0:
+            s.add(i)
+            s.add(N// i)
+    for i in sorted(s):
+        print(i)
     return
 
 
