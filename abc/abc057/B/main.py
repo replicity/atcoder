@@ -3,6 +3,18 @@ import sys
 
 
 def solve(N: int, M: int, a: "List[int]", b: "List[int]", c: "List[int]", d: "List[int]"):
+    for i in range(N):
+        x = a[i]
+        y = b[i]
+        ans = 0
+        min_distance = float("inf")
+        for j in range(M):
+            distance = abs(x - c[j]) + abs(y - d[j])
+            if distance < min_distance:
+                ans = j + 1
+                min_distance = distance
+        print(ans)
+
     return
 
 
