@@ -3,6 +3,20 @@ import sys
 
 
 def solve(N: int, T: int, t: "List[int]"):
+    ans = 0
+    s = t[0]
+    e = t[0] + T
+    for i in range(1, N):
+        if t[i] <= e:
+            e = t[i] + T
+        else:
+            ans += e - s
+            s = t[i]
+            e = t[i] + T
+    ans += e - s
+    print(ans)
+
+
     return
 
 

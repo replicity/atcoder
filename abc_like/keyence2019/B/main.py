@@ -6,6 +6,23 @@ NO = "NO"  # type: str
 
 
 def solve(S: str):
+    o = "keyence"
+    a = 0
+    for i in range(len(o)):
+        if S[i] == o[i]:
+            a += 1
+        else:
+            break
+    if a == len(o):
+        print(YES)
+        return
+    if S[-(len(o)-a):] == o[-(len(o)-a):]:
+        print(YES)
+        return
+    if S[-len(o)] == o:
+        print(YES)
+        return
+    print(NO)
     return
 
 

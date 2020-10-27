@@ -3,6 +3,18 @@ import sys
 
 
 def solve(N: int, s: "List[int]"):
+    total = sum(s)
+    if total % 10 != 0:
+        print(total)
+        return
+    m = float('inf')
+    for i in s:
+        if i % 10 != 0:
+            m = min(i,m)
+    if m == float('inf'):
+        print(0)
+        return
+    print(total-m)
     return
 
 
