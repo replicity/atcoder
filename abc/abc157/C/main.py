@@ -3,6 +3,24 @@ import sys
 
 
 def solve(N: int, M: int, s: "List[int]", c: "List[int]"):
+    ans = [-1] * N
+    for i in range(M):
+        si = s[i]
+        ci = c[i]
+        if ans[si-1] != -1 and ans[si-1] != ci:
+            print(-1)
+            return
+        if si-1 == 0 and ci == 0 and N != 1:
+            print(-1)
+            return
+        ans[si-1] = ci
+    if ans[0] == -1 and N != 1:
+        ans[0] = 1
+    for i in range(N):
+        if ans[i] == -1:
+            ans[i] = 0
+    print(int(''.join(map(str,ans))))
+
     return
 
 

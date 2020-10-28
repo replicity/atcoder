@@ -3,6 +3,22 @@ import sys
 
 
 def solve(R: int, G: int, B: int, N: int):
+    r_max = N // R + 1
+    g_max = N // G + 1
+    ans = 0
+    for i in range(r_max):
+        for j in range(g_max):
+            t = N - (i * R + j * G)
+            if t < 0:
+                break
+            if t == 0:
+                ans += 1
+                break
+            if t % B == 0:
+                ans += 1
+    print(ans)
+
+
     return
 
 

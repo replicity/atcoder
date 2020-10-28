@@ -3,6 +3,20 @@ import sys
 
 
 def solve(N: int, K: int):
+    ans = 0
+    base = 1 / N
+    for i in range(1, N+1):
+        p = base
+        n = i
+        if n < K:
+            for j in range(1, 18):
+                n *= 2
+                if n >= K:
+                    p *= (0.5 ** j)
+                    break
+        ans += p
+    print(ans)
+
     return
 
 

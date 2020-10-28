@@ -3,6 +3,21 @@ import sys
 
 
 def solve(N: int, A: int, B: int):
+    if A > B:
+        print(0)
+        return
+    if N == 1:
+        if A != B:
+            print(0)
+        else:
+            print(1)
+        return
+    a= (N -2) * A
+    b = (N -2) * B
+    ans = max(b-a+1, 1)
+    print(ans)
+
+
     return
 
 
