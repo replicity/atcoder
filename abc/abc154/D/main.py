@@ -1,8 +1,31 @@
 #!/usr/bin/env python3
 import sys
 
+def expected_value(N: int):
+    p = 1 / N
+    ex  = 0
+    for i in range(1, N+1):
+        ex  += i*p
+    return ex
+
 
 def solve(N: int, K: int, p: "List[int]"):
+    sums = [0] * N
+    sums[0] = p[0]
+    max = p[0]
+    i = 0
+    for j in range(1, N):
+        sums[j] = sums[j-1] + p[j]
+        if j >= K:
+            sums[j] -= p[j-K]
+        if sums[j] > max:
+            max = sums[j]
+            i = j
+    ans = 0
+    for j in range(i,i-K, -1):
+        ans += expected_value(p[j])
+    print(ans)
+
     return
 
 

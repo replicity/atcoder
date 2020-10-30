@@ -6,6 +6,22 @@ NO = "No"  # type: str
 
 
 def solve(N: int, a: "List[int]"):
+    n4 = 0
+    n2 = 0
+    no = 0
+    for i in a:
+        if i % 4 == 0:
+            n4 += 1
+        elif i % 2 == 0:
+            n2 += 1
+        else:
+            no += 1
+    if n2 > 0:
+        no += 1
+    if n4+1 >= no:
+        print(YES)
+    else:
+        print(NO)
     return
 
 
