@@ -3,6 +3,18 @@ import sys
 
 
 def solve(A: int, B: int):
+    ans = 0
+    C = abs(A-B)
+    ans += C // 10
+    D = C % 10
+    if D == 5 or D == 1:
+        ans += 1
+    elif D == 9 or D == 6 or D == 4 or D == 2:
+        ans += 2
+    elif D == 8 or D == 7 or D == 3:
+        ans += 3
+    print(ans)
+
     return
 
 

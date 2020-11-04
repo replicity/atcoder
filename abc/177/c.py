@@ -1,19 +1,19 @@
 # vim: fileencoding=utf-8
 
+MOD = (10 ** 9) + 7
 
 def main():
-    n = int(input())
-    li = list(map(int, input().split()))
-    res = 0
-    m = 1000000007
-    for i in range(n - 1):
-        for j in range(i + 1, n):
-            res += li[i] * li[j]
-            if res > m:
-                print(res % m)
-                return
+    N = int(input())
+    A = list(map(int, input().split()))
+    sums = [0] * N
+    sums[N-1] = A[N-1]
+    ans = 0
+    for i in range(N-2, -1, -1):
+        sums[i] += sums[i+1] + A[i]
 
-    print(res % m)
+    for i in range(N - 1):
+        ans += (A[i] * sums[i+1]) % MOD
+    print(ans% MOD)
 
 
 if __name__ == "__main__":
