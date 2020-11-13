@@ -3,6 +3,34 @@ import sys
 
 
 def solve(A: int, B: int, C: int, D: int):
+    A = A -1
+
+    # 最小公倍数を求めるために、最大公約数をもとめる
+    g = 0
+    b = max(C, D)
+    s = min(C, D)
+    while True:
+        r = b % s
+        if r != 0:
+            b = s
+            s = r
+        else:
+            g = s
+            break
+
+    # 最大公約数を使って最大公倍数をもとめる
+    e = (C * D) // g
+
+    b = B
+    a = A
+    b -= (B // C)
+    b -= (B // D)
+    b += (B // e)
+    a -= (A // C)
+    a -= (A // D)
+    a += (A // e)
+
+    print(b-a)
     return
 
 

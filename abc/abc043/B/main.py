@@ -2,12 +2,15 @@
 import sys
 
 
-def solve(N: int, K: int, A: "List[int]"):
-    ans =(N-1) // (K -1)
-    if (N-1) % (K - 1) != 0:
-        ans += 1
-    print(ans)
-
+def solve(s: str):
+    stack = []
+    for i in s:
+        if i != 'B':
+            stack.append(i)
+        else:
+            if len(stack) != 0:
+                stack.pop()
+    print(''.join(stack))
     return
 
 
@@ -18,10 +21,8 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    N = int(next(tokens))  # type: int
-    K = int(next(tokens))  # type: int
-    A = [int(next(tokens)) for _ in range(N)]  # type: "List[int]"
-    solve(N, K, A)
+    s = next(tokens)  # type: str
+    solve(s)
 
 if __name__ == '__main__':
     main()
