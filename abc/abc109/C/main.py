@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 import sys
+import math
+from functools import reduce
 
+def gcd_list(numbers):
+    return reduce(math.gcd, numbers)
 
 def solve(N: int, X: int, x: "List[int]"):
+    s = set()
+    for i in x:
+        s.add(abs(X - i))
+    print(gcd_list(list(s)))
+
     return
 
 
