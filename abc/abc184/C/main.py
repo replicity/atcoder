@@ -2,7 +2,50 @@
 import sys
 
 
-def solve(r: "List[int]", c: "List[int]"):
+def solve(r: "List[int]", s: "List[int]"):
+    a = r[0]
+    c = r[1]
+    b = s[0]
+    d = s[1]
+
+    if a == c and b == d:
+        print(0)
+        return
+
+    if (a + b) == (c + d):
+        print(1)
+        return
+
+    if  (a - b) == (c - d):
+        print(1)
+        return
+
+    if (abs(a - c) + abs(b - d)) <= 3:
+        print(1)
+        return
+
+    # マンハッタン距離3 * 2
+    if (abs(a - c) + abs(b - d)) <= 6:
+        print(2)
+        return
+
+    # 斜め移動だけ
+    if (a + b) % 2 == (c + d ) % 2:
+        print(2)
+        return
+
+    # 右肩上がりの斜め+マンハッタン距離3
+    if abs((a + b) - (c + d )) <= 3:
+        print(2)
+        return
+
+    # 右肩下がりの斜め+マンハッタン距離3
+    if abs((a - b) - (c - d )) <= 3:
+        print(2)
+        return
+
+    print(3)
+
     return
 
 
