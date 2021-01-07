@@ -3,6 +3,22 @@ import sys
 
 
 def solve(N: int, S: "List[str]"):
+    s = set()
+    for t in S:
+        s.add(t)
+    for t in S:
+        tt = "!" + t
+        if t in s and tt in s:
+            if t in s:
+                if t[0] == "!":
+                    print(t[1:])
+                    return
+            if tt in s:
+                print(t)
+                return
+
+    print("satisfiable")
+
     return
 
 

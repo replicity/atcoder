@@ -3,6 +3,24 @@ import sys
 
 
 def solve(N: int, A: "List[int]", B: "List[int]"):
+    l = []
+    a = sum(A)
+    for i in range(N):
+        l.append((i, A[i]*2+ B[i]))
+
+    l.sort(key=lambda x: x[1], reverse=True)
+    ans = 0
+    b = 0
+    for t in l:
+        ans += 1
+        i = t[0]
+        a -= A[i]
+        b += B[i] + A[i]
+        if b > a:
+            break
+
+    print(ans)
+
     return
 
 
@@ -22,4 +40,4 @@ def main():
     solve(N, A, B)
 
 if __name__ == '__main__':
-    main()
+        main()

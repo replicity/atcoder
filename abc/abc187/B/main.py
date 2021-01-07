@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, x: "List[int]", y: "List[int]"):
+    ans = 0
+    for i in range(N-1):
+        for j in range(i+1, N):
+            a = (y[j] - y[i])
+            b = (x[j] - x[i])
+            r = a / b
+            if -1 <= r <= 1:
+                ans += 1
+    print(ans)
+
     return
 
 

@@ -3,6 +3,12 @@ import sys
 
 
 def solve(A: int, B: int):
+    a = sum(map(int, str(A)))
+    b = sum(map(int, str(B)))
+    if a >= b:
+        print(a)
+    else:
+        print(b)
     return
 
 
