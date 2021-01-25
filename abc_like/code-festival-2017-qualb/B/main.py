@@ -1,11 +1,29 @@
 #!/usr/bin/env python3
 import sys
 
+from collections import defaultdict
+
 YES = "YES"  # type: str
 NO = "NO"  # type: str
 
 
 def solve(N: int, D: "List[int]", M: int, T: "List[int]"):
+    d = defaultdict(int)
+    t = defaultdict(int)
+    for i in range(N):
+        d[D[i]] += 1
+
+    for i in range(M):
+        t[T[i]] += 1
+
+    for k in t.keys():
+        if t[k] > d[k]:
+            print(NO)
+            return
+
+    print(YES)
+
+
     return
 
 

@@ -2,7 +2,15 @@
 import sys
 
 
-def solve(N: int, h: "List[int]"):
+def solve(N: int, L: "List[int]"):
+    ans = 0
+    a = 0
+    for i in range(N):
+        b = L[i]
+        if a > b:
+            ans += a - b
+        a = b
+    print(ans + b)
     return
 
 
