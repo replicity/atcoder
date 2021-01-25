@@ -3,6 +3,18 @@ import sys
 
 
 def solve(K: int, A: int, B: int):
+    if A+1 >= B:
+        print(1+K)
+        return
+
+    ans = 0
+    C = K - (A-1)
+    c = C // 2
+    if C % 2 == 1:
+        ans += 1
+    ans += (c * (B - A)) + A
+
+    print(ans)
     return
 
 
