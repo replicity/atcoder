@@ -3,6 +3,21 @@ import sys
 
 
 def solve(N: int, M: int, X: "List[int]"):
+    if N >= M:
+        print(0)
+        return
+    x = sorted(X)
+    d = []
+    a = x[0]
+    for i in range(1, M):
+        d.append(abs(a - x[i]))
+        a = x[i]
+
+    d = sorted(d)
+    print(sum(d[0:len(d)-N+1]))
+
+
+
     return
 
 
