@@ -3,6 +3,11 @@ import sys
 
 
 def solve(X: int):
+    for i in range(1, X+1):
+        y =  ((i+1) * i)// 2
+        if y >= X:
+            print(i)
+            return
     return
 
 
