@@ -1,8 +1,31 @@
 #!/usr/bin/env python3
 import sys
-
+import string
 
 def solve(s: str):
+    ans = len(s)
+    # アルファベット小文字すべて試す
+    for c in string.ascii_lowercase:
+        if c in s:
+            # 一つ前の位置
+            p = -1
+            # 右端の位置
+            r = 0
+            # 一番長い間隔
+            d = 0
+            for i in range(len(s)):
+                if s[i] == c:
+                    r = len(s) - i - 1
+                    if i != 0:
+                        new_d = i - p -1
+                        d = max(new_d, d)
+                    p = i
+
+            ans = min(ans, max(r, d))
+    print(ans)
+
+
+
     return
 
 
