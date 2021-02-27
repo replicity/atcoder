@@ -6,6 +6,14 @@ NO = "NO"  # type: str
 
 
 def solve(S: str):
+    m = {'a': 0, 'b':0, 'c': 0}
+    for s in S:
+        m[s] += 1
+    if abs(m['a'] - m['b']) <= 1 and abs(m['a'] - m['c']) <= 1 and abs(m['b'] - m['c']) <= 1:
+        print(YES)
+    else:
+        print(NO)
+
     return
 
 
