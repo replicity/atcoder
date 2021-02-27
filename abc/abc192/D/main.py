@@ -1,8 +1,38 @@
 #!/usr/bin/env python3
 import sys
 
+def Base_n_to_10(X, n):
+  out = 0
+  X = str(X)
+  for i in range(1, len(str(X))+1):
+    out += int(X[-i]) * (n**(i-1))
+  return out
 
 def solve(X: str, M: int):
+    nums = map(int, X)
+    d = max(nums)
+    X = int(X)
+
+    if X < 10:
+        if X <= M:
+            print(1)
+        else:
+            print(0)
+        return
+
+    ok = d
+    ng = 10**20
+    while (abs(ok- ng) > 1):
+        md = (ok + ng)//2
+
+        n = Base_n_to_10(X, md)
+        if n <= M:
+            ok = md
+        else:
+            ng = md
+
+    print(ok - d)
+
     return
 
 

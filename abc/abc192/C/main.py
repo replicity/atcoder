@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, K: int):
+    for i in range(K):
+        s = str(N)
+        g1 = ''.join(list(sorted(s, reverse=True)))
+        g2 = ''.join(list(sorted(s)))
+        N = int(g1) - int(g2)
+    print(N)
+
+
     return
 
 
