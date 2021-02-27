@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, M: int):
+    if N > (M // 2):
+        print(M//2)
+        return
+
+    m = M - (2*N)
+    ans = N + (m // 4)
+    print(ans)
+
     return
 
 
