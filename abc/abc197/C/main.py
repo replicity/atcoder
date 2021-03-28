@@ -1,54 +1,28 @@
 #!/usr/bin/env python3
 import sys
-import itertools
-
-l = []
-
-def part_int_sub(n, k, a):
-    if n == 0:
-        l.append(a)
-    elif n == 1:
-        l.append(a + [1])
-    elif k == 1:
-        l.append(a + [1] * n)
-    else:
-        if n >= k:
-           part_int_sub(n - k, k, a + [k])
-        part_int_sub(n, k - 1, a)
-
-def partition_of_int(n):
-    part_int_sub(n, n, [])
+from functools import reduce
 
 def solve(N: int, A: "List[int]"):
-    partition_of_int(N)
+    r = 2 ** (N -1)
+    f = "{:0"  +str(N-1) +"b}"
 
     ans = float('inf')
-    f = False
-    for i in l:
-        for v in itertools.permutations(i, len(i)):
-            if len(v) == N:
-                if f:
-                    continue
-                f = True
-            # print(v)
-            a = A.copy()
-            tmp = -1
-            for j in v:
-                t = a[:j]
-                tt = 0
-                for k in t:
-                    tt |= k
-                a = a[j:]
-                if tmp == -1:
-                    tmp = tt
-                else:
-                    tmp ^= tt
-                # print(tmp)
-            ans = min(ans, tmp)
+    for i in range(r):
+        m = f.format(i)
+        ol = []
+        xl = []
+        for j in range(len(m)):
+            # or
+            if m[j] == "0":
+                ol.append(A[j])
+                continue
+            # xor
+            xl.append(reduce(lambda x, y: x | y, ol, A[j]))
+            ol = []
 
-            if ans == 0:
-                print(ans)
-                return
+        xl.append(reduce(lambda x, y: x | y, ol, A[-1]))
+        s = reduce(lambda x, y: x ^ y, xl[1:], xl[0])
+        ans = min(ans, s)
     print(ans)
 
     return
